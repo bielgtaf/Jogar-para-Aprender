@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogar para Aprender</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header>
+
+<img src="logo.png" alt="Logo" class="logo">
+
+<h1>Jogar para Aprender</h1>
+
+<p>
+Aprenda programação jogando e evolua seu conhecimento.
+</p>
+
+</header>
+
+<div class="container">
+
+<!-- PERFIL -->
+
+<div class="card">
+
+<h2>👤 Perfil</h2>
+
+<p>
+<strong>Nível:</strong>
+<span id="nivel">1</span>
+</p>
+
+<p>
+<strong>XP:</strong>
+<span id="xp">0</span>/100
+</p>
+
+<div class="barra-xp">
+
+<div id="barraXp" class="xp-preenchido">
+
+</div>
+
+</div>
+
+<p>
+<strong>Pontos:</strong>
+<span id="pontos">0</span>
+</p>
+
+<p>
+<strong>Perguntas Respondidas:</strong>
+<span id="respondidas">0</span>
+</p>
+
+</div>
+
+<!-- QUIZ -->
+
+<div class="card" id="quiz">
+
+<h2>💻 Quiz de Programação</h2>
+
+<h3 id="pergunta">
+
+Carregando pergunta...
+
+</h3>
+
+<div id="opcoes">
+
+</div>
+
+<div id="resultado">
+
+</div>
+
+</div>
+
+<!-- RANKING -->
+
+<div class="card">
+
+<h2>🏆 Ranking</h2>
+
+<ol id="rankingLista">
+
+</ol>
+
+</div>
+
+<!-- ESTATÍSTICAS -->
+
+<div class="card">
+
+<h2>📊 Estatísticas</h2>
+
+<p>
+Acertos:
+<span id="acertos">0</span>
+</p>
+
+<p>
+Erros:
+<span id="erros">0</span>
+</p>
+
+<p>
+Taxa de Acerto:
+<span id="taxaAcerto">0%</span>
+</p>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
