@@ -1,125 +1,148 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jogar para Aprender</title>
 
-<link rel="stylesheet" href="estilo.css">
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    margin: 0;
+}
 
+/* HEADER */
+header{
+    text-align: center;
+    padding: 30px;
+    background: #1e293b;
+}
+
+.logo{
+    width: 120px;
+    image-rendering: pixelated;
+}
+
+/* CONTAINER */
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARDS */
+.card{
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+/* BOTÕES */
+button{
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+/* PROGRESS BAR */
+.progress{
+    width: 100%;
+    background: #334155;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar{
+    height: 15px;
+    width: 40%;
+    background: #22c55e;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-
-<img src="logo.png" alt="Logo" class="logo">
-
-<h1>Jogar para Aprender</h1>
-
-<p>
-Aprenda programação jogando e evolua seu conhecimento.
-</p>
-
+    <img src="logo.png" class="logo" alt="Logo do Projeto">
+    <h1>Jogar para Aprender</h1>
+    <p>Sistema de gamificação educacional</p>
 </header>
 
 <div class="container">
 
-<!-- PERFIL -->
+    <!-- DASHBOARD -->
+    <div class="card">
+        <h2>📊 Dashboard</h2>
+        <p>XP: <span id="xp">120</span></p>
+        <p>Nível: <span id="level">2</span></p>
 
-<div class="card">
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
 
-<h2>👤 Perfil</h2>
+    <!-- QUIZ -->
+    <div class="card">
+        <h2>🧠 Quiz Educacional</h2>
+        <p>Quanto é 2 + 2?</p>
 
-<p>
-<strong>Nível:</strong>
-<span id="nivel">1</span>
-</p>
+        <button onclick="acertou()">4</button>
+        <button onclick="errou()">5</button>
+        <button onclick="errou()">3</button>
 
-<p>
-<strong>XP:</strong>
-<span id="xp">0</span>/100
-</p>
+        <p id="quizResult"></p>
+    </div>
 
-<div class="barra-xp">
+    <!-- RANKING -->
+    <div class="card">
+        <h2>🏆 Ranking</h2>
+        <ol>
+            <li>Aluno A - 500 XP</li>
+            <li>Aluno B - 300 XP</li>
+            <li>Você - 120 XP</li>
+        </ol>
+    </div>
 
-<div id="barraXp" class="xp-preenchido">
-
-</div>
-
-</div>
-
-<p>
-<strong>Pontos:</strong>
-<span id="pontos">0</span>
-</p>
-
-<p>
-<strong>Perguntas Respondidas:</strong>
-<span id="respondidas">0</span>
-</p>
-
-</div>
-
-<!-- QUIZ -->
-
-<div class="card" id="quiz">
-
-<h2>💻 Quiz de Programação</h2>
-
-<h3 id="pergunta">
-
-Carregando pergunta...
-
-</h3>
-
-<div id="opcoes">
+    <!-- PERFIL -->
+    <div class="card">
+        <h2>👤 Perfil</h2>
+        <p>Nome: Jogador</p>
+        <p>Status: Aprendiz</p>
+    </div>
 
 </div>
 
-<div id="resultado">
+<script>
+let xp = 120;
+let level = 2;
 
-</div>
+function acertou(){
+    document.getElementById("quizResult").innerText = "✔ Resposta correta! +50 XP";
+    xp += 50;
+    atualizar();
+}
 
-</div>
+function errou(){
+    document.getElementById("quizResult").innerText = "❌ Resposta errada!";
+}
 
-<!-- RANKING -->
+function atualizar(){
+    document.getElementById("xp").innerText = xp;
 
-<div class="card">
+    if(xp >= 200){
+        level = 3;
+    }
 
-<h2>🏆 Ranking</h2>
-
-<ol id="rankingLista">
-
-</ol>
-
-</div>
-
-<!-- ESTATÍSTICAS -->
-
-<div class="card">
-
-<h2>📊 Estatísticas</h2>
-
-<p>
-Acertos:
-<span id="acertos">0</span>
-</p>
-
-<p>
-Erros:
-<span id="erros">0</span>
-</p>
-
-<p>
-Taxa de Acerto:
-<span id="taxaAcerto">0%</span>
-</p>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
+    document.getElementById("level").innerText = level;
+}
+</script>
 
 </body>
 </html>
